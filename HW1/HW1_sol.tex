@@ -22,14 +22,14 @@ We use $ M_i $ to indicate the player plays on the ith machine.
 We have 
 \begin{align*}
     P(A|M_1) = \frac{2}{5}&, P(A|M_2) = \frac{21}{104}\\
-    P(B|M_1) = \frac{3}{10 }&, P(B|M_2) = \frac{1}{6}
+    P(B|M_1) = \frac{3}{10 }&, P(B|M_2) = \frac{1}{6}.
 \end{align*}
 Thus, on both machine 1 and machine 2, I am more likely to win.
 
 \subsection{}
 \begin{align*}
     P(A) &= \frac{40 + 210}{40 + 60 + 210 + 830} = \frac{25}{114} \\
-    P(B) &= \frac{30 + 14}{30 + 70 + 14 + 70} = \frac{11 }{46}
+    P(B) &= \frac{30 + 14}{30 + 70 + 14 + 70} = \frac{11 }{46}.
 \end{align*}
 Thus, my friend is more likely to win.
 
@@ -48,11 +48,11 @@ Thus, as I played much more rows on machine 2, and the overall winning rate on m
 \subsection{} % (fold)
 \begin{align*}
     a_1 = (1, 0)&, b_1 = (2, 0)\\
-    a_2 = (0, 1)&, b_2 = (3, 2)
+    a_2 = (0, 1)&, b_2 = (3, 2).
 \end{align*}
 Suppose $ W = \begin{bmatrix}
     W_{11} & W_{12} \\ W_{21} & W_{22}
-\end{bmatrix} $
+\end{bmatrix}. $
 We have
 \begin{align*}
     b_1 &= Wa_1 = \begin{bmatrix}
@@ -74,14 +74,14 @@ We have
         W_{22}
     \end{bmatrix} = \begin{bmatrix}
     3  \\ 2 
-    \end{bmatrix}
+    \end{bmatrix}.
 \end{align*}
 Thus, we have
 \begin{align*}
     W = \begin{bmatrix}
     2 & 3 \\
     0 & 2
-    \end{bmatrix}
+    \end{bmatrix}.
 \end{align*}
 \subsection{} % (fold)
 From $ \tan(\alpha  ) = 2 $, we have $ \sin(\alpha ) = \frac{2\sqrt{5}}{5} \text { and  } \cos(\alpha  ) = \frac{\sqrt5}{5} $(Suppose $ \alpha \in (0, \pi) $)\\
@@ -90,22 +90,22 @@ Moreover, we have the formula of the rotation matrix:
     R = \begin{bmatrix}
     \cos\theta  & \sin\theta  \\
     -\sin\theta  & \cos\theta
-    \end{bmatrix}
+    \end{bmatrix}.
 \end{align*} 
 When $ \theta $ is the clockwise rotation angle. \\
 Thus, $$ V = \begin{bmatrix}
 \frac{\sqrt5 }{5} & \frac{2\sqrt{5}}{5} \\
 -\frac{2\sqrt{5}}{5} & \frac{\sqrt 5 }{5}
-\end{bmatrix} $$
+\end{bmatrix} .$$
 As $ \Sigma  $ scales the x-axis by a factor of 4 in two-dimensional space, the matrix is: $$ \Sigma = \begin{bmatrix}
 4 & 0 \\
 0 & 1
-\end{bmatrix} $$ \\
+\end{bmatrix} .$$ \\
 By using the same approach, we can get matrix $ U $. $ \tan(\beta) = \frac{1}{2}, \sin(\beta) = \frac{\sqrt{5}}{5}, \cos(\beta) = \frac{2 \sqrt{5}}{5} $,\\
 And $$ U = \begin{bmatrix}
 \frac{2 \sqrt{5}}{5} & -\frac{\sqrt{5}}{5} \\
 \frac{\sqrt{5}}{5} & \frac{2 \sqrt{5}}{5}
-\end{bmatrix} $$
+\end{bmatrix} .$$
 Multiplying three matrices together, we have:
 \begin{align*}
     U\Sigma V &= \begin{bmatrix}
@@ -129,11 +129,11 @@ Multiplying three matrices together, we have:
 2 & 3 \\
 0 & 2
 \end{bmatrix}\\
-&= W
+&= W.
 \end{align*}
 Thus, we have
 \begin{align*}
-    U\Sigma V = W
+    U\Sigma V = W.
 \end{align*}
 % subsection  (end)
 % subsection  (end)         
@@ -232,7 +232,7 @@ Thus we can prove:
     x^T\lambda Ax + x^T(1-\lambda)Bx\geq 0 \\
     x^T(\lambda Ax + (1-\lambda)B)x\geq 0 \\
 \end{align*}
-Thus we can prove that the matrix $ \lambda Ax + (1-\lambda)B) $ is also PSD for $ 0 \leq \lambda \leq 1 $.
+Thus we can prove that the matrix $ \lambda Ax + (1-\lambda)B $ is also PSD for $ 0 \leq \lambda \leq 1 $.
 % subsection  (end)
 % section Some Practices (end)
 \clearpage
@@ -352,5 +352,5 @@ By setting the cluster number to $4$. We re-apply k-means and there are $25$ obs
         \caption{KMeans clustering visualization by using first two variables}
     \end{center}
 \end{figure}
-Based on this plot, it might seemed the clustering is not that accurate. However, this is because we only selected the first two variables two do the visualization while the original data is actually much more complex than that. And we can be sure this is a good choice for the number of centers as this is the elbow point showed in 6.1.
+Based on this plot, it might seemed the clustering is not that accurate. However, this is because we only selected the first two variables to do the visualization while the original data is actually much more complex than that. And we can be sure this is a good choice for the number of centers as this is the elbow point showed in 6.1.
 \end{document}
