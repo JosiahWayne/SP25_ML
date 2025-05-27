@@ -1,0 +1,91 @@
+\documentclass{article}
+\usepackage[a4paper, total={6.5in, 9in}]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{authblk}
+\usepackage{float}
+\usepackage{enumerate}
+\renewcommand{\labelenumi}{(\alph{enumi})}
+\title{CSCI-SHU 360 Machine Learning\\
+    Solution to homework 3}
+\author{Josiah Li \texttt{yl11912@nyu.edu}}
+
+\begin{document}
+    \maketitle
+\section{Programming Problem: Random Forests}
+\subsection{}
+\begin{table}[ht]
+  \centering
+  \caption{Train and Test RMSE for Different Models}
+  \label{tab:rmse-comparison}
+  \begin{tabular}{lcc}
+    \toprule
+    \textbf{Model}            & \textbf{Train RMSE} & \textbf{Test RMSE} \\
+    \midrule
+    Random Forest             & 3.19                & 3.86               \\
+    Linear Regression         & 4.82                & 5.20               \\
+    Ridge Regression ($\alpha$=0.5) & 4.63            & 4.92               \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+We can see that the random forest model performs the best compared to the previous models. 
+\subsection{}
+\begin{table}[ht]
+  \centering
+  \caption{Train and Test Accuracy for credit risk and breast canser prediction.}
+  \label{tab:rmse-comparison}
+  \begin{tabular}{lcc}
+    \toprule
+    \textbf{Model}            & \textbf{Train Accuracy} & \textbf{Test Accuracy} \\
+    \midrule
+    Credit Risk               & 84.29\%                & 74.67\%               \\
+    Breast Cancer         & 98.24\%               & 96.50\%               \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\section{Programming Problem: Gradient Boosting Decision Trees}
+\subsection{}
+For the implementation that we first iterate $ m $ features, and perform a linear search on the current sample set to find the best threshold, we need to do the sorting based on the features. Costing $ \mathcal{O}(mn\log n) $. After that, what really matters is the linear search we do on the tree. As there are $ d $ layers, and the total sample number on each layer will be $ n $. Thus, on each layer, the cost of a linear search will be $ \mathcal{O}(mn) $ in total. Thus, the total time complexity will be $ \mathcal{O}(mn\log n + mnd) $.
+\clearpage
+\subsection{}
+According to Question~1, we know that the most expensive operation in GBDT training is scanning all candidate thresholds on every feature to find the best split. To alleviate this cost, we discretise each continuous feature into a small, fixed number of buckets (histogram bins). The idea is to transform an $O(n)$ scan over raw values into an $O(K)$ scan over bucket statistics. Thus, after we done this, the total time complexity will be reduced to $ \mathcal{O}(mKd) $.
+\subsection{}
+We can see that finding the splits for the features can be done in a parallel way. Here we modify the function ``find\_best\_decision\_rule".
+\subsection{}
+\begin{table}[ht]
+  \centering
+  \caption{Train and Test RMSE for Different Models}
+  \label{tab:rmse-comparison}
+  \begin{tabular}{lcc}
+    \toprule
+    \textbf{Model}            & \textbf{Train RMSE} & \textbf{Test RMSE} \\
+    \midrule
+    Random Forest             & 3.19                & 3.86               \\
+    GBDT        & 1.59 &3.59 \\ 
+    Linear Regression         & 4.82                & 5.20               \\
+    Ridge Regression ($\alpha$=0.5) & 4.63            & 4.92               \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+\subsection{}
+\begin{table}[htbp]
+  \centering
+  \caption{Train and Test Accuracy for credit risk and breast canser prediction by using GBDT.}
+  \label{tab:rmse-comparison}
+  \begin{tabular}{lcc}
+    \toprule
+    \textbf{Model}            & \textbf{Train Accuracy} & \textbf{Test Accuracy} \\
+    \midrule
+    Credit Risk               & 89.14\%                & 76.33\%               \\
+    Breast Cancer         & 99.75\%               & 95.91\%               \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+\subsection{}
+By comparing the previous tables, we can see that most of the time, we can see that GBDT has at least the same or better performance on the datasets. This is probably because GBDT is correcting the mistakes of the tree to the direction that minimize the mistakes, while RF corrects the mistakes by randomly sampling from the dataset, which is trying to correct the mistakes by a random pattern.
+\end{document}
